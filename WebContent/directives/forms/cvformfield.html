@@ -1,0 +1,13 @@
+<div>
+
+	{{originalFormField}}
+
+<div style="color:red" ng-show="formName.fieldName.$touched">This field has been touched by the user</div>
+<div ng-show="formName.fieldName.$untouched">This field has not been touched by the user</div>
+<div ng-show="formName.fieldName.$pristine">This field has not been changed by the user</div>
+<div ng-show="formName.fieldName.$dirty">It has been modified from the original value</div>
+<div ng-show="formName.fieldName.$invalid">It is not valid according to the rules (2-5 chars):
+	{{customerForm.firstName.$error}}
+</div>
+<div ng-show="formName.fieldName.$valid">Good to Go</div>
+</div>

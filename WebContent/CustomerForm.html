@@ -1,14 +1,27 @@
-<div ng-controller="CustomerFormController">
+<form ng-controller="CustomerFormController" novalidate="novalidate">
+
+<cv-form name="custForm">
+	<input name="firstName" ng-model="customer.firstName" class="cv-ff" ng-minlength="2" ng-maxlength="5" ng-required="true"/>
+</cv-form>
+
+
+<hr/>
+
+<div ng-form="customerForm">
 
 	<span ng-show="customer.firstName">
 	Hello, {{customer.firstName}} {{customer.lastName}}<br /> 
 	</span>
 	
-	Customer ID:	<input ng-model="customer.customerId" /><br /> 
-	First Name:	<input ng-model="customer.firstName" /><br /> 
-	Last Name: <input ng-model="customer.lastName" /><br /> 
-	Phone Number : <input ng-model="customer.phoneNumber" /><br />
-	Email : <input ng-model="customer.email" type="email" /><br />
+	Customer ID:	<input ng-model="customer.customerId" ng-required="true" required="required"/><br /> 
+	First Name:	<input name="firstName" ng-model="customer.firstName" ng-minlength="2" ng-maxlength="5" required="true" ng-required="required"/>
+	<br /> 
+	Last Name: <input name="lastName" ng-model="customer.lastName" ng-minlength="2" ng-maxlength="5" />
+	<br /> 
+	Phone Number : <input name="phoneNumber" ng-model="customer.phoneNumber" ng-pattern="/\d{3}-\d{4}/"/>
+	<br />
+	Email : <input name="email" ng-model="customer.email" type="email" />
+	<br />
 	
 	<button id="btnAddCustomer" ng-click="addCustomer()">Add Customer</button>
 	<button id="btnAddCustomer" ng-click="findCustomerById()">Find By ID</button>
@@ -16,6 +29,7 @@
 	<button id="btnAddCustomer" ng-click="deleteCustomer()">Delete</button>
 	<button id="btnAddCustomer" ng-click="clearForm()">Clear Form</button>
 </div>
+</form>
 
 
 

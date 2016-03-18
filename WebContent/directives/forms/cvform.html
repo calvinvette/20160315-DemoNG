@@ -1,0 +1,14 @@
+<form ng-form="{{formName}}}}"> <h1>{{formName}} Form-level Errors</h1>
+	<div ng-show="{{formName}}.$pristine">This form has not been touched by the user</div>
+	<div ng-show="{{formName}}.$dirty">The form has been modified from the original value</div>
+	<div ng-show="{{formName}}.$invalid">The form is not valid according to the rules of all of the fields</div>
+	<div ng-show="{{formName}}.$valid">Good to Go</div>
+	
+	<h1>Field-Level Errors (top of form)</h1>
+	<div ng-repeat="err in {{formName}}.$error">
+		<div>{{err[0].$name}}: {{err[0].$error}} <span ng-hide="true">Details: {{err}}</span></div>
+	</div>
+	<hr/>
+	
+	
+</form>
